@@ -12,6 +12,7 @@
     "prebuild": "expo prebuild --clean",
     "web": "expo start --web",
     "build-web": "expo export:web && node ./scripts/post-web-build.js",
+    "build": "yarn use-build-number-with-bump eas build",
     "start": "expo start --dev-client",
     "start:prod": "expo start --dev-client --no-dev --minify",
     "test": "NODE_ENV=test jest --forceExit --testTimeout=20000 --bail",
