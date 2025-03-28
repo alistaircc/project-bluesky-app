@@ -8,10 +8,16 @@
   "packageManager": "yarn@1.22.22",
   "scripts": {
     "prepare": "is-ci || husky install",
+    "postinstall": "patch-package && yarn intl:compile",
+    "prebuild": "expo prebuild --clean",
     "web": "expo start --web",
+    "use-build-number": "./scripts/useBuildNumberEnv.sh",
+    "use-build-number-with-bump": "./scripts/useBuildNumberEnvWithBump.sh",
     "build-web": "expo export:web && node ./scripts/post-web-build.js",
     "build": "yarn use-build-number-with-bump eas build",
-    "start": "expo start --dev-client"
+    "build-embed": "cd bskyembed && yarn build && yarn build-snippet && cd .. && node ./scripts/post-embed-build.js",
+    "start": "expo start --dev-client",
+    "start:prod": "expo start --dev-client --no-dev --minify"
   },
   "dependencies": {
     "@atproto/api": "^0.14.7",
