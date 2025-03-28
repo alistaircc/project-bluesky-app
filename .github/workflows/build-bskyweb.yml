@@ -23,3 +23,9 @@ jobs:
 
       - name: Start Web App
         run: yarn start
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: web-build
+          path: build
