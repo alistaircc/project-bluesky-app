@@ -6,24 +6,23 @@ on:
 
 jobs:
   build:
+    timeout-minutes: 15
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Repo Code
+        uses: actions/checkout@v4
 
-      - name: Set up Node.js
+      - name: Set up Node.js using latest available version of Node.js
         uses: actions/setup-node@v4
         with:
           node-version: lts/*
 
-      - name: Install dependencies
-        run: yarn
+      - name: Install yarn dependencies
+        run: yarn install
 
-      - name: Run build command
-        run: yarn web
+      - name: Run yarn build command
+        run: yarn build
 
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: web-build
-          path: build
+      - name: Start Web App
+        run: yarn start
