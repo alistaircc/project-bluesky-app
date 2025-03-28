@@ -8,9 +8,7 @@
   "packageManager": "yarn@1.22.22",
   "scripts": {
     "prepare": "is-ci || husky install",
-    "web": "expo start --web",
-    "build": "expo export:web && node ./scripts/post-web-build.js",
-    "start": "expo start --dev-client"
+    "web": "expo start --web"
   },
   "dependencies": {
     "@atproto/api": "^0.14.7",
