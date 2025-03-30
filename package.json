@@ -9,6 +9,7 @@
   "scripts": {
     "prepare": "is-ci || husky install",
     "web": "expo start --web",
+    "build-web": "expo export:web && node ./scripts/post-web-build.js",
     "start": "expo start --dev-client"
   },
   "dependencies": {
