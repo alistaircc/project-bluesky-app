@@ -13,19 +13,13 @@ jobs:
       - name: Checkout Repo Code
         uses: actions/checkout@v4
 
-      - name: Set up Node.js using latest available version of Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: lts/*
 
-      - name: Install yarn dependencies
-        run: yarn
+      - name: Install Yarn dependencies
+        run: yarn install
 
-      - name: Start Web App
-        run: yarn start
-
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: web-build
-          path: build
+      - name: Start BlueSky Web App
+        run: yarn web
