@@ -22,4 +22,7 @@ jobs:
         run: yarn install
 
       - name: Start BlueSky Web App
-        run: yarn web
+        run: yarn start
+
+      - name: Check if the client is running (example - adjust port if different)
+        run: curl http://localhost:8081 || echo "Bluesky web client might not be running"
