@@ -10,19 +10,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repo Code
-        uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: lts/*
+      - name: Install Node.js and Yarn
+        run: |
+          # install nodejs
+          nvm install
+          nvm use
+          npm install --global yarn
 
-      - name: Install Yarn dependencies
-        run: yarn install
+      - name: Setup tools and deps
+        run: yarn install --frozen-lockfile
 
-      - name: Start BlueSky Web App
-        run: yarn start
+      - name: Start the web dev server
+        run: yarn web
 
-      - name: Check if the client is running (example - adjust port if different)
-        run: curl http://localhost:8081 || echo "Bluesky web client might not be running"
+      - name: Build Web
+        run: yarn build-web
