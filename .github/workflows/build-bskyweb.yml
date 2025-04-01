@@ -18,11 +18,14 @@ jobs:
         with:
           node-version: 20
   
-      - name: Install Dependencies
-        run: yarn install
+      - name: Install Yarn & NPM Dependencies
+        run: |
+          yarn install
+          npm install
+          npm install react-native-web
 
       - name: Run Unit Tests
         run: yarn test
 
       - name: Run Project
-        run: yarn start
+        run: yarn web
