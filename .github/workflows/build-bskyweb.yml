@@ -2,11 +2,11 @@ name: Build Bluesky Web
 
 on:
   push:
-    branches: [ dev ]
+    branches: [dev]
 
 jobs:
   build:
-    timeout-minutes: 15
+    #timeout-minutes: 30
     runs-on: ubuntu-22.04
 
     steps:
