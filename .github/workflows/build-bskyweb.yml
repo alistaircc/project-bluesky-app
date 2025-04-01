@@ -21,7 +21,7 @@ jobs:
       - name: Install Yarn & NPM Dependencies
         run: |
           yarn install
-          npm install
+          npm install --force
           npm install react-native-web
 
       - name: Run Unit Tests
