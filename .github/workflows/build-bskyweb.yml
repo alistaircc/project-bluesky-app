@@ -23,3 +23,6 @@ jobs:
 
       - name: Build Web Project
         run: yarn build-web
+
+      - name: Start Web Project
+        run: yarn start
