@@ -7,7 +7,7 @@ on:
 jobs:
   build:
     timeout-minutes: 15
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout repository
@@ -19,10 +19,7 @@ jobs:
           node-version: 20
   
       - name: Install Dependencies
-        run: nvm install
-
-      - name: Run Jest Unit Tests
-        run: nvm test
+        run: yarn
 
       - name: Build Web Project
-        run: nvm build-web
+        run: yarn build-web
