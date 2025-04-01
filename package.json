@@ -8,6 +8,7 @@
   "packageManager": "yarn@1.22.22",
   "scripts": {
     "prepare": "is-ci || husky install",
+    "prebuild": "expo prebuild --clean",
     "web": "expo start --web",
     "build-web": "expo export:web && node ./scripts/post-web-build.js",
     "start": "expo start --dev-client",
