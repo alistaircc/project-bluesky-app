@@ -25,4 +25,6 @@ jobs:
         run: yarn test
 
       - name: Run Project
-        run: yarn web
+        run: |
+          yarn bootstrap
+          yarn web
