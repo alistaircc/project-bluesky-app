@@ -21,10 +21,8 @@ jobs:
       - name: Install Yarn & NPM Dependencies
         run: yarn install
 
-      - name: Run Unit Tests
+      - name: Run Jest Unit Tests
         run: yarn test
 
-      - name: Run Project
-        run: |
-          yarn bootstrap
-          yarn web
+      - name: Build Web Project
+        run: yarn build-web
