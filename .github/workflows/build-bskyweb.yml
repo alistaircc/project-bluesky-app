@@ -18,11 +18,11 @@ jobs:
         with:
           node-version: 20
   
-      - name: Install Yarn & NPM Dependencies
-        run: yarn install
+      - name: Install Dependencies
+        run: nvm install
 
       - name: Run Jest Unit Tests
-        run: yarn test
+        run: nvm test
 
       - name: Build Web Project
-        run: yarn build-web
+        run: nvm build-web
