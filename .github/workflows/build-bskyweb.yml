@@ -10,19 +10,24 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-      - name: Checkout repository
+      - name: Checkout Git Repository
         uses: actions/checkout@v3
 
-      - name: Install Node.js
+      - name: Install Node.js Version 20
         uses: actions/setup-node@v3
         with:
           node-version: 20
   
-      - name: Install Dependencies
+      - name: Install Yarn Dependencies
         run: yarn
 
-      - name: Build Web Project
+      - name: Start Local Server
+        run: yarn start
+
+      - name: Build Web Version
         run: yarn build-web
 
-      - name: Start Web Project
+      - name: Run Server in Production
         run: yarn start
+
+     
