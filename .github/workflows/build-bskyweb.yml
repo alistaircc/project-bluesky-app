@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    #timeout-minutes: 15
+    timeout-minutes: 60
     runs-on: ubuntu-22.04
 
     steps:
@@ -16,18 +16,15 @@ jobs:
       - name: Install Node.js Version 20
         uses: actions/setup-node@v3
         with:
-          node-version: 20
+          node-version: '21'
   
       - name: Install Yarn Dependencies
-        run: yarn
-
-      - name: Start Local Server
-        run: yarn start
+        run: yarn --frozen-lockfile --silent
 
       - name: Build Web Version
         run: yarn build-web
 
-      - name: Run Server in Production
-        run: yarn start:prod
+      - name: Run Server in Dev
+        run: yarn start:dev
 
      
