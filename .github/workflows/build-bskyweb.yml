@@ -13,13 +13,15 @@ jobs:
       - name: Checkout Git Repository
         uses: actions/checkout@v3
 
-      - name: Install Node.js Version 20
+      - name: Install Node.js Version 21
         uses: actions/setup-node@v3
         with:
           node-version: '21'
   
       - name: Install Yarn Dependencies
-        run: yarn --frozen-lockfile --silent
+        run: |
+          yarn --frozen-lockfile --silent
+          yarn add -D webpack-cli
 
       - name: Build Web Version
         run: yarn build-web
